@@ -1,3 +1,16 @@
+let playerSelection;
+let computerSelection;
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        console.log("Round" + (i + 1));
+        let playerSelection = playerPrompt();
+        let computerSelection = getComputerChoice();
+        let result = rockPaperScissors(playerSelection, computerSelection);
+        console.log(result);
+    } 
+}
+
 function playerPrompt() {
     let selection = false;
 
@@ -10,6 +23,7 @@ function playerPrompt() {
         
             selection = true;
             let playerSelection = choice;
+            console.log(playerSelection);
             return playerSelection;
         
         } else {
@@ -22,10 +36,11 @@ function playerPrompt() {
 
 } 
 
-function getComputerChoice () {
-    const choices = ["rock", "paper", "scissors"];
-    const choice = Math.floor(Math.random() * choices.length);
-    return choice;
+function getComputerChoice() {
+    let choices = ["rock", "paper", "scissors"];
+    let computerSelection = choices[(Math.random() * choices.length) | 0];
+    console.log(computerSelection);
+    return computerSelection;
 }
 
 function rockPaperScissors(playerSelection, computerSelection) {
@@ -66,5 +81,3 @@ function rockPaperScissors(playerSelection, computerSelection) {
     }
 
 }
-
-
